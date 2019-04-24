@@ -22,11 +22,12 @@ python log_reader.py
 ```
 After you use the above command the tool will ask you several inputs which you need to enter it correctly to get the desired logs from the server log files.
 
-Inputs needed to enter by the user - 
-* Server IP address - It must be exactly same as the servername generated on the log file
-* CPU_ID - It can either be 0 or 1
-* Start Time - It must follow (YYYY-MM-DD HH:MM) format
-* End Time - It must follow (YYYY-MM-DD HH:MM) format
+### Inputs needed to enter by the user - 
+
+1. Server IP address - It must be exactly same as the servername generated on the log file
+2. CPU_ID - It can either be 0 or 1
+3. Start Time - It must follow (YYYY-MM-DD HH:MM) format
+4. End Time - It must follow (YYYY-MM-DD HH:MM) format
 
 - If the user enters all the above details correctly, he/she will get the desired log details for the given time period within a second.
 - If the users fails to give correct input, the user will get an error message by the tool saying that user has entered wrong input.
