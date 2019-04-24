@@ -8,8 +8,7 @@ import sys
 os.chdir('.\\testLogs')
 
 # take user input
-# print(sys.argv)
-# 192.168.1.09 1 2014-10-31 00:00 2014-10-31 00:05
+# 192.168.1.9 1 2014-10-31 00:00 2014-10-31 00:05
 flag = 0
 while True:
     if flag != 0:
@@ -23,21 +22,17 @@ while True:
             starttime = starttime.strip()
             endtime = input('Enter end datetime: ')
             endtime = endtime.strip()
-            # print(inputFile, cpuID, starttime, endtime)
 
             try:
 
                 start_date_time = datetime.datetime.strptime(starttime, "%Y-%m-%d %H:%M")
                 end_date_time = datetime.datetime.strptime(endtime, "%Y-%m-%d %H:%M")
-                # print("date and time:", date_time.hour)
 
                 startdateTime = datetime.datetime(start_date_time.year, start_date_time.month, start_date_time.day, start_date_time.hour, start_date_time.minute)
                 startunixtime = int(time.mktime(startdateTime.timetuple()))
-                # print(startunixtime)
 
                 enddateTime = datetime.datetime(end_date_time.year, end_date_time.month, end_date_time.day, end_date_time.hour, end_date_time.minute)
                 endunixtime = int(time.mktime(enddateTime.timetuple()))
-                # print(endunixtime)
 
                 # check if cpuID is either 1 or 0
                 if cpuID != '1' and cpuID != '0':
@@ -50,29 +45,23 @@ while True:
                     for line in f:
                         line = ''.join(line)
                         line = line.rstrip()
-
                         line = line.split(',')
-                        # print(line)
 
                         timestamp = line[0].split('Timestamp: ')
                         timestamp = ''.join(timestamp)
                         timestamp.strip()
-                        # print(timestamp)
 
                         cpu = line[1].split(' CPU: ')
                         cpu = ''.join(cpu)
                         cpu.strip()
-                        # print(cpu)
 
                         cpu_id = line[2].split(' CPU_id: ')
                         cpu_id = ''.join(cpu_id)
                         cpu_id.strip()
-                        # print(cpu_id)
 
                         usage = line[3].split(' %usage: ')
                         usage = ''.join(usage)
                         usage.strip()
-                        # print(usage)
 
                         # check start time and end time
                         if startunixtime > endunixtime:
@@ -81,7 +70,6 @@ while True:
                         # check unixtime logic
                         # check if timestamp is between start and end time
                         if startunixtime <= int(timestamp) <= endunixtime:
-                            # print(startunixtime, timestamp, endunixtime)
                             ans = {
                                 'timestamp': timestamp,
                                 'cpu_id': cpu_id,
@@ -113,24 +101,19 @@ while True:
         starttime = starttime.strip()
         endtime = input('Enter end datetime: ')
         endtime = endtime.strip()
-        # print(inputFile, cpuID, starttime, endtime)
 
         try:
 
             start_date_time = datetime.datetime.strptime(starttime, "%Y-%m-%d %H:%M")
             end_date_time = datetime.datetime.strptime(endtime, "%Y-%m-%d %H:%M")
-            # print("date and time:", date_time.hour)
 
             startdateTime = datetime.datetime(start_date_time.year, start_date_time.month, start_date_time.day, start_date_time.hour, start_date_time.minute)
             startunixtime = int(time.mktime(startdateTime.timetuple()))
-            # print(startunixtime)
 
             enddateTime = datetime.datetime(end_date_time.year, end_date_time.month, end_date_time.day, end_date_time.hour, end_date_time.minute)
             endunixtime = int(time.mktime(enddateTime.timetuple()))
-            # print(endunixtime)
 
             # check if cpuID is either 1 or 0
-            # print(cpuID != '1' or)
             if cpuID != '1' and cpuID != '0':
                 raise Exception
 
@@ -144,27 +127,22 @@ while True:
                     line = line.rstrip()
 
                     line = line.split(',')
-                    # print(line)
 
                     timestamp = line[0].split('Timestamp: ')
                     timestamp = ''.join(timestamp)
                     timestamp.strip()
-                    # print(timestamp)
 
                     cpu = line[1].split(' CPU: ')
                     cpu = ''.join(cpu)
                     cpu.strip()
-                    # print(cpu)
 
                     cpu_id = line[2].split(' CPU_id: ')
                     cpu_id = ''.join(cpu_id)
                     cpu_id.strip()
-                    # print(cpu_id)
 
                     usage = line[3].split(' %usage: ')
                     usage = ''.join(usage)
                     usage.strip()
-                    # print(usage)
 
                     # check start time and end time
                     if startunixtime > endunixtime:
@@ -173,7 +151,6 @@ while True:
                     # check unixtime logic
                     # check if timestamp is between start and end time
                     if startunixtime <= int(timestamp) <= endunixtime:
-                        # print(startunixtime, timestamp, endunixtime)
                         ans = {
                             'timestamp': timestamp,
                             'cpu_id': cpu_id,

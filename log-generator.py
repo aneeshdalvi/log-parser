@@ -4,12 +4,12 @@ import time
 import datetime
 import os
 
+# creating a new directory 'testLogs'
 os.mkdir('.\\testLogs')
 os.chdir('.\\testLogs')
 
 
 # getting cpus and random usage
-
 cpustr = '192.168.'
 cpuid1 = 0
 cpuid2 = 1
@@ -17,13 +17,6 @@ SERVERS = 1000
 MINUTES_A_DAY = 1440
 serverid = 1
 serverid1 = 0
-
-# start date initialized
-
-# print(dateTime.date().day)
-# unixtime1 = int(time.mktime(dateTime.timetuple()))
-# print(unixtime1)
-
 
 # each server should generate a log every minute with 2 CPUs
 for server in range(SERVERS):
@@ -39,7 +32,6 @@ for server in range(SERVERS):
 
         dateTime = dateTime + datetime.timedelta(minutes=1)
         unixtime2 = int(time.mktime(dateTime.timetuple()))
-        # print(unixtime2)
 
         f = open(cpustr + str(serverid) + "." + str(serverid1) + ".log", "a+")
         randomUsage1 = random.randint(0, 100)
